@@ -13,6 +13,10 @@ public class Persona {
     @Column(name = "apellidos")
     private String apellidos;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "direccion_id")
+    private Direccion direccion;
+
     public int getId() {
         return id;
     }
@@ -35,5 +39,13 @@ public class Persona {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
     }
 }

@@ -11,6 +11,7 @@ public class PersonaService {
     private PersonaRepository personaRepository; //Inyeccion de dependencias
 
     public Persona obtenerPorID(Integer id){
+
         return this.personaRepository.findById(id).get();
     }
     public Integer guardarPersona(String nombre, String apellidos){

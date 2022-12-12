@@ -1,16 +1,11 @@
-package com.grupo.pruebainfotec.entity;
+package com.grupo.pruebainfotec.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
-@Entity
-@Table(name = "pasatiempos", schema = "public")
-public class Pasatiempo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PasatiempoDTO {
     private int id;
     private String nombre;
     private int pasatiempo;
-    @Column(name = "persona_id")
     private int idPersona;
 
     public int getId() {

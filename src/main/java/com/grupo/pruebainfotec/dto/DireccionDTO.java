@@ -1,37 +1,28 @@
-package com.grupo.pruebainfotec.entity;
+package com.grupo.pruebainfotec.dto;
 
-import jakarta.persistence.*;
+import com.grupo.pruebainfotec.entity.Direccion;
+import jakarta.persistence.Column;
 
-@Entity
-@Table(name = "dirección", schema = "public")
-public class Direccion {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class DireccionDTO {
+
     private String calle;
-    @Column(name = "número_interior")
     private String numeroInterior;
-    @Column(name = "número_exterior")
     private String numeroExterior;
-    @Column(name = "código_postal")
     private int codigoPostal;
     private String colonia;
-
-    @Column(name = "ciudad")
     private int idCiudad;
-    @Column(name = "id_estado")
     private int idEstado;
 
-    @OneToOne(mappedBy = "direccion")
-    @PrimaryKeyJoinColumn
-    private Persona persona;
+    public DireccionDTO(){}
+    public DireccionDTO(Direccion direccion){
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.calle = direccion.getCalle();
+        this.numeroInterior = direccion.getNumeroInterior();
+        this.numeroExterior = direccion.getNumeroExterior();
+        this.codigoPostal = direccion.getCodigoPostal();
+        this.colonia = direccion.getColonia();
+        this.idCiudad = direccion.getIdCiudad();
+        this.idEstado = direccion.getIdEstado();
     }
 
     public String getCalle() {

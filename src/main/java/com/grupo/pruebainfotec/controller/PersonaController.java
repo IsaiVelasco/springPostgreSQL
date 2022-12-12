@@ -14,7 +14,7 @@ public class PersonaController {
     @Autowired
     public PersonaService personaService;
     @PutMapping("/guardar")
-    public ResponseEntity<Integer> guardarPersona(@RequestParam("nombre")String nombre, @RequestParam("apellidos") String apellidos){
+    public ResponseEntity<Integer> guardarPersona(@RequestParam("nombre")String nombre, @RequestParam("apellidos") String apellidos, @RequestParam("direccion") Integer id_direccion){
         Integer id = 0;
         try{
             id = this.personaService.guardarPersona(nombre, apellidos);
