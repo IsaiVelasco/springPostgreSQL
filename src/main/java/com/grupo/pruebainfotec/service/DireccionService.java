@@ -7,11 +7,17 @@ import com.grupo.pruebainfotec.repository.DireccionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class DireccionService {
     @Autowired
     private DireccionRepository direccionRepository;
 
+    public List<Direccion> direcciones(){
+        return this.direccionRepository.findAll();
+    }
     public Direccion direccionPorId(Integer id){
         return this.direccionRepository.findById(id).get();
     }
@@ -27,6 +33,13 @@ public class DireccionService {
         direccion.setIdEstado(direccionDTO.getIdEstado());
         direccion = this.direccionRepository.save(direccion);
         return direccion.getId();
+    }
+
+    public void eliminarPorId(Integer id){
+        Optional<Direccion> optionalDireccion = this.direccionRepository.findById(id);
+        if(optionalDireccion.isEmpty()){
+
+        }
     }
 
 
